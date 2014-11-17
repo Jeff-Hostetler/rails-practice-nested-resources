@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>Passengers</h1>
+</div>
+
+<% if @passengers.present? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @passengers.each do |passenger| %>
+        <tr>
+          <td><%= passenger.name %></td>
+          <td>
+            <%= link_to "Passenger suitcases", passenger_suitcases_path(passenger) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="jumbotron">
+    <h1>You forgot to run <code>rake db:seed</code></h1>
+  </div>
+<% end %>
